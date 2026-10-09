@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../components/BaseLayout.astro';
+import CTASection from '../components/CTASection.astro';
+import EngineeringWorkflow from '../components/EngineeringWorkflow.astro';
+import PageHero from '../components/PageHero.astro';
+import StatusTag from '../components/StatusTag.astro';
+---
+
+<BaseLayout title="제품·연구" description="CATIA Engineering Agent, Agentic Knowledge Management와 산업 AI의 현재 개발·연구 상태를 구분해 안내합니다." path="/products/">
+  <PageHero eyebrow="PRODUCTS & R&D" title="제품과 연구, 현재의 상태를 정확하게" description="제조 현장에서 검토 중인 제품과 연구 방향을 실제 구현·검증 상태에 맞춰 구분해 소개합니다." />
+
+  <section class="product-section" id="catia-engineering-agent">
+    <div class="container">
+      <div class="engineering-product-layout">
+        <div>
+          <p class="eyebrow eyebrow-dark"><span></span>IN DEVELOPMENT</p>
+          <div class="product-section-head"><h2>CATIA Engineering Agent</h2></div>
+          <StatusTag label="개발 중 · 내부 RC, 제한된 지원 범위" />
+          <div class="product-section-copy" style="margin-top: 20px">
+            <p>기존 CATIA V5 모델에서 확인 가능한 정보를 읽고 변경 후보를 살펴본 뒤, 사람이 검토·승인한 제한된 변경 경로를 실행하고 결과를 확인하는 설계 지원 도구를 개발하고 있습니다.</p>
+            <p>현재 공개 저장소의 릴리스 문서는 내부 RC를 제한 사항과 함께 기록하며, 고객·상업 파일럿은 시작되지 않은 상태입니다. 모델이나 기능에 관계없이 범용으로 변경하거나 완전 자율 설계를 수행하는 제품은 아닙니다.</p>
+          </div>
+          <div class="product-note"><strong>지원 범위 안내</strong>모델·문서·변경 전략과 검증 자료가 사전에 확인된 제한 경로만 대상으로 합니다. 일반적인 Feature 이름이나 유사성만으로 변경 실행을 보장하지 않습니다.</div>
+        </div>
+        <div>
+          <h3 class="visually-hidden">CATIA Engineering Agent의 개발 방향</h3>
+          <EngineeringWorkflow />
+          <p class="workflow-caption">개발 방향을 설명하는 개념 흐름이며, 외부 고객용 Demo 화면이 아닙니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="product-section section-muted" id="knowledge-management">
+    <div class="container">
+      <div class="product-section-head">
+        <div><p class="eyebrow eyebrow-dark"><span></span>RESEARCH DIRECTION</p><h2>Agentic Knowledge Management System</h2></div>
+        <StatusTag label="연구 후보" tone="gray" />
+      </div>
+      <div class="product-section-copy">
+        <p>제조 문서와 설계·업무 지식을 찾아 활용하는 에이전트 기반 지식관리 방식은 연구 후보입니다. 지정된 저장소에서 완성된 제품, 공개 시연물 또는 검증 결과는 확인되지 않았습니다.</p>
+        <p>실제 고객 데이터와 업무 시나리오를 확인한 뒤 요구사항과 적용 가능성을 구체화할 예정입니다. 현재 기능을 제공 중인 제품처럼 안내하지 않습니다.</p>
+      </div>
+      <div class="research-diagram" aria-label="연구 후보 분야: 기술 문서, 설계 데이터, 업무 지식의 활용 검토">
+        <span>기술 문서</span><b aria-hidden="true">→</b><span>지식 탐색 방법 연구</span><b aria-hidden="true">→</b><span>업무 지식</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="product-section" id="industrial-ai">
+    <div class="container">
+      <div class="product-section-head">
+        <div><p class="eyebrow eyebrow-dark"><span></span>APPLICATION AREA</p><h2>산업 AI 분석 · 예측</h2></div>
+        <StatusTag label="프로젝트 적용 영역" tone="gray" />
+      </div>
+      <div class="product-section-copy">
+        <p>품질 편차 분석, 이상 징후 탐지, 설비 데이터 분석과 공정 지표 예측은 고객의 과제와 데이터에 따라 검토할 수 있는 적용 영역입니다.</p>
+        <p>독립 제품으로 공개된 AI 모델이나 고객 환경에서 검증된 성능을 뜻하지 않습니다. 실제 데이터 접근성, 업무 목표와 검증 기준을 합의한 뒤 프로젝트 범위를 정합니다.</p>
+      </div>
+      <div class="button-row"><a class="button button-outline-dark" href="/services/">AI 개발 서비스 보기 <span aria-hidden="true">↗</span></a></div>
+    </div>
+  </section>
+
+  <CTASection title="기술 검토나 제한된 PoC를 논의해 보세요" text="현재 상태와 고객 환경의 제약을 확인하고 가능한 범위를 함께 정의합니다." label="제품·PoC 문의하기" />
+</BaseLayout>

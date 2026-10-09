@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../components/BaseLayout.astro';
+import CTASection from '../components/CTASection.astro';
+import PageHero from '../components/PageHero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+
+const evidenceFields = [
+  ['프로젝트 분야', '제조 DX · 산업 AI · 엔지니어링 등'],
+  ['고객 산업', '공개 승인 범위에 따른 산업 정보'],
+  ['해결 과제', '고객이 해결하고자 했던 업무 문제'],
+  ['수행 범위', 'Moonworld의 역할과 실제 작업 범위'],
+  ['기술·연계', '사용 권한과 공개 승인이 확인된 기술'],
+  ['결과물', '구축·분석·검증으로 제공한 산출물'],
+  ['검증 가능한 성과', '근거 자료와 산식으로 확인된 결과'],
+  ['공개 승인', '고객이 승인한 명칭·정보·화면 범위'],
+];
+
+const publicationSteps = [
+  ['01', '수행 사실 확인', '프로젝트 목표, 역할과 작업 범위를 기록으로 확인합니다.'],
+  ['02', '결과 근거 확인', '수치와 설명의 근거를 점검하고 재현 가능한 내용을 선별합니다.'],
+  ['03', '고객 공개 승인', '고객 정보, 이미지와 상세 수준을 승인받은 뒤 게시합니다.'],
+];
+---
+
+<BaseLayout title="구축 경험" description="공개 가능한 제조 DX·AI 프로젝트 사례를 확인하고, Moonworld의 사례 공개 기준과 검증 항목을 살펴보세요." path="/experience/">
+  <PageHero eyebrow="OUR EXPERIENCE" title="검증 가능한 경험을 투명하게 공유합니다" description="고객 정보와 프로젝트 범위, 결과의 객관적 근거, 공개 승인을 확인한 내용만 사례로 소개합니다." />
+
+  <section class="container evidence-intro">
+    <p class="eyebrow eyebrow-dark"><span></span>PUBLIC CASES</p>
+    <h2>현재 공개 가능한<br />고객 사례를 정리하고 있습니다</h2>
+    <p>확인되지 않은 고객명이나 성과를 사례로 만들지 않습니다. 공개 승인과 검증 자료를 갖춘 사례가 준비되면 이 페이지에 추가하겠습니다.</p>
+  </section>
+
+  <section class="section section-muted" aria-labelledby="case-fields-heading">
+    <div class="container">
+      <SectionHeading id="case-fields-heading" eyebrow="CASE STUDY FORMAT" title="향후 공개될 사례의 구성 항목" text="각 항목을 확인한 뒤 고객이 공개를 승인한 정보만 투명하게 공유합니다." />
+      <ul class="evidence-fields">
+        {evidenceFields.map(([title, text]) => <li><strong>{title}</strong><span>{text}</span></li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="publication-heading">
+    <div class="container">
+      <SectionHeading id="publication-heading" eyebrow="PUBLICATION STANDARD" title="사례 공개 전 세 가지를 확인합니다" text="검증과 공개 권한은 신뢰할 수 있는 구축 사례의 기본 조건입니다." />
+      <div class="evidence-steps">
+        {publicationSteps.map(([number, title, text]) => <article class="evidence-step"><span>{number}</span><h3>{title}</h3><p>{text}</p></article>)}
+      </div>
+    </div>
+  </section>
+
+  <CTASection title="비슷한 과제를 검토 중이신가요?" text="현황과 제약 조건을 바탕으로 적용 가능성과 다음 단계를 함께 살펴봅니다." label="구축 경험 상담하기" />
+</BaseLayout>

@@ -1,0 +1,22 @@
+---
+import { projectSteps } from '../data/site';
+
+interface Props {
+  compact?: boolean;
+}
+
+const { compact = false } = Astro.props;
+---
+
+<ol class:list={['flow-steps', compact && 'flow-steps-compact']}>
+  {projectSteps.map((step, index) => (
+    <li class="flow-step">
+      <span class="flow-number">{step.number}</span>
+      <div>
+        <h3>{step.title}</h3>
+        <p>{step.text}</p>
+      </div>
+      {index < projectSteps.length - 1 && <span class="flow-connector" aria-hidden="true">→</span>}
+    </li>
+  ))}
+</ol>

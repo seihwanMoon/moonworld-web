@@ -1,0 +1,33 @@
+---
+interface Props {
+  pending?: boolean;
+  title?: string;
+  description?: string;
+  industry?: string;
+  scope?: string;
+  href?: string;
+}
+
+const { pending = false, title, description, industry, scope, href } = Astro.props;
+---
+
+<article class:list={['case-card', pending && 'case-card-pending']}>
+  {pending ? (
+    <>
+      <span class="case-card-mark" aria-hidden="true">MW</span>
+      <div>
+        <p class="eyebrow eyebrow-dark"><span></span>PUBLIC CASES</p>
+        <h3>공개 가능한 사례를 준비하고 있습니다</h3>
+        <p>고객 공개 승인과 프로젝트 범위·결과 근거를 확인한 뒤 검증된 사례만 공유하겠습니다.</p>
+        <a class="text-link" href={href ?? '/experience/'}>공개 기준 보기 <span aria-hidden="true">→</span></a>
+      </div>
+    </>
+  ) : (
+    <>
+      <div class="case-card-meta"><span>{industry}</span><span>{scope}</span></div>
+      <h3>{title}</h3>
+      <p>{description}</p>
+      {href && <a class="text-link" href={href}>사례 자세히 보기 <span aria-hidden="true">→</span></a>}
+    </>
+  )}
+</article>
