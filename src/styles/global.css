@@ -118,13 +118,25 @@ textarea:focus-visible {
   gap: 34px;
 }
 
-.wordmark {
+.brand-lockup {
+  display: inline-flex;
   flex: 0 0 auto;
-  color: var(--white);
-  font-size: 19px;
-  font-weight: 760;
-  letter-spacing: 0.105em;
-  line-height: 1;
+  align-items: center;
+  justify-self: start;
+  width: fit-content;
+  max-width: 100%;
+  padding: 3px 6px;
+  background: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 2px;
+}
+
+.brand-lockup img {
+  display: block;
+  width: auto;
+  height: 50px;
+  max-width: 190px;
+  object-fit: contain;
 }
 
 .site-nav {
@@ -310,7 +322,7 @@ textarea:focus-visible {
   position: absolute;
   z-index: -2;
   inset: 0;
-  background-image: url('/images/manufacturing-hero.png');
+  background-image: url('/images/manufacturing-hero.webp');
   background-position: center 48%;
   background-size: cover;
 }
@@ -339,6 +351,7 @@ textarea:focus-visible {
   letter-spacing: -0.052em;
   line-height: 1.12;
   text-wrap: balance;
+  word-break: keep-all;
 }
 
 .hero-content h1 span {
@@ -790,7 +803,7 @@ textarea:focus-visible {
   position: absolute;
   z-index: -2;
   inset: 0;
-  background-image: url('/images/manufacturing-hero.png');
+  background-image: url('/images/manufacturing-hero.webp');
   background-position: center 66%;
   background-size: cover;
   opacity: 0.34;
@@ -835,7 +848,7 @@ textarea:focus-visible {
 
 .footer-main {
   display: grid;
-  grid-template-columns: 190px 1fr;
+  grid-template-columns: 210px 1fr;
   gap: 10px 24px;
   align-items: center;
   padding-block: 34px 25px;
@@ -845,6 +858,10 @@ textarea:focus-visible {
   margin: 0;
   color: rgba(255, 255, 255, 0.65);
   font-size: 13px;
+}
+
+.footer-main .brand-lockup img {
+  height: 48px;
 }
 
 .footer-email {
@@ -997,59 +1014,68 @@ textarea:focus-visible {
   font-size: 14px;
 }
 
-.evidence-intro {
-  max-width: 770px;
-  margin: 0 auto;
-  padding-block: 94px 90px;
-  text-align: center;
-}
-
-.evidence-intro .eyebrow {
-  justify-content: center;
-}
-
-.evidence-intro h2 {
-  margin: 0;
-  color: var(--navy);
-  font-size: clamp(32px, 4vw, 48px);
-  letter-spacing: -0.05em;
-  line-height: 1.28;
-}
-
-.evidence-intro p:last-child {
-  max-width: 660px;
-  margin: 20px auto 0;
-  color: var(--body);
-  font-size: 16px;
-}
-
-.evidence-fields {
+.experience-capability-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  margin: 0;
-  padding: 0;
-  list-style: none;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 38px;
   border-top: 1px solid var(--line);
   border-left: 1px solid var(--line);
 }
 
-.evidence-fields li {
-  min-height: 126px;
-  padding: 20px;
+.experience-capability {
+  padding: 27px 25px 30px;
+  background: var(--white);
   border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
 
-.evidence-fields strong {
-  display: block;
-  margin-bottom: 8px;
+.experience-capability-number {
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 740;
+}
+
+.experience-capability h3 {
+  margin: 13px 0 9px;
   color: var(--navy);
+  font-size: 21px;
+  letter-spacing: -0.035em;
+}
+
+.experience-capability > p {
+  min-height: 76px;
+  margin: 0;
+  color: var(--body);
   font-size: 14px;
 }
 
-.evidence-fields span {
+.experience-capability ul {
+  display: grid;
+  gap: 8px;
+  margin: 20px 0 0;
+  padding: 17px 0 0 18px;
   color: var(--muted);
+  border-top: 1px solid var(--line);
   font-size: 13px;
+}
+
+.experience-capability li::marker {
+  color: var(--blue);
+}
+
+.experience-proof-note {
+  margin: 28px 0 0;
+  padding: 18px 20px;
+  color: #344664;
+  background: #eaf1fd;
+  border-left: 3px solid var(--blue);
+  font-size: 13px;
+}
+
+.experience-proof-note strong {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--navy);
 }
 
 .evidence-steps {
@@ -1115,6 +1141,20 @@ textarea:focus-visible {
   margin: 0 0 14px;
 }
 
+.product-value {
+  max-width: 780px;
+  margin: 17px 0 16px;
+  color: var(--body);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.product-status-note {
+  margin: 15px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
 .product-section-copy ul {
   display: grid;
   gap: 8px;
@@ -1139,23 +1179,9 @@ textarea:focus-visible {
   align-items: start;
 }
 
-.product-note {
-  padding: 18px 20px;
-  color: #344664;
-  background: #edf3fd;
-  border-left: 3px solid var(--blue);
-  font-size: 13px;
-}
-
-.product-note strong {
-  display: block;
-  margin-bottom: 5px;
-  color: var(--navy);
-}
-
 .research-diagram {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1.45fr) auto minmax(0, 1fr);
   gap: 14px;
   align-items: center;
   margin-top: 28px;
@@ -1512,7 +1538,13 @@ textarea:focus-visible {
   }
 
   .page-hero-image {
-    background-position: 61% center;
+    background-image: url('/images/manufacturing-hero-mobile.webp');
+    background-position: center center;
+  }
+
+  .cta-image {
+    background-image: url('/images/manufacturing-hero-mobile.webp');
+    background-position: center center;
   }
 
   .home-hero::after,
@@ -1645,8 +1677,9 @@ textarea:focus-visible {
     width: calc(100% - 40px);
   }
 
-  .wordmark {
-    font-size: 17px;
+  .brand-lockup img {
+    height: 42px;
+    max-width: 160px;
   }
 
   .site-nav {
@@ -1849,25 +1882,16 @@ textarea:focus-visible {
     gap: 5px;
   }
 
-  .evidence-intro {
-    padding-block: 62px;
-  }
-
-  .evidence-intro h2 {
-    font-size: 32px;
-  }
-
-  .evidence-fields {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .evidence-fields li {
-    min-height: 112px;
-    padding: 15px;
-  }
-
   .evidence-steps {
     grid-template-columns: 1fr;
+  }
+
+  .experience-capability-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-capability > p {
+    min-height: 0;
   }
 
   .evidence-step {
