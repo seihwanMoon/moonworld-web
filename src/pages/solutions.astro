@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../components/BaseLayout.astro';
+import CTASection from '../components/CTASection.astro';
+import PageHero from '../components/PageHero.astro';
+import { solutions } from '../data/site';
+---
+
+<BaseLayout title="제조 DX·AI 솔루션" description="Manufacturing DX, Industrial AI, Generative AI와 Engineering AI의 고객 문제, 적용 기술, 제공 범위와 수행 방식을 확인하세요." path="/solutions/">
+  <PageHero eyebrow="OUR SOLUTIONS" title="제조 현장에 맞는 DX와 AI 솔루션" description="제조 업무와 기존 시스템을 이해하고, 실제 과제에 맞는 기술과 적용 범위를 함께 설계합니다." primaryLabel="AI 도입 문의하기" secondaryLabel="서비스 수행 방식" secondaryHref="/services/" />
+
+  {solutions.map((solution) => (
+    <section class="solution-detail" id={solution.href.split('#')[1]} aria-labelledby={`${solution.number}-title`}>
+      <div class="container">
+        <div class="solution-detail-head">
+          <div>
+            <div class="solution-detail-title"><span class="index-number">{solution.number}</span><h2 id={`${solution.number}-title`}>{solution.title}</h2></div>
+            <p class="solution-detail-english">{solution.english}</p>
+          </div>
+          <p class="solution-detail-problem">{solution.problem}</p>
+        </div>
+        <dl class="solution-facts">
+          <div><dt>적용 기술</dt><dd><ul>{solution.technologies.map((item) => <li>{item}</li>)}</ul></dd></div>
+          <div><dt>제공 기능</dt><dd><ul>{solution.capabilities.map((item) => <li>{item}</li>)}</ul></dd></div>
+          <div><dt>기대할 수 있는 변화</dt><dd><ul>{solution.outcomes.map((item) => <li>{item}</li>)}</ul></dd></div>
+          <div><dt>수행 방식</dt><dd>{solution.approach}</dd></div>
+        </dl>
+      </div>
+    </section>
+  ))}
+
+  <CTASection title="지금 해결하고 싶은 업무 과제를 들려주세요" text="데이터와 기존 시스템을 함께 살펴본 뒤 적합한 다음 단계를 협의합니다." label="AI 도입 문의하기" />
+</BaseLayout>

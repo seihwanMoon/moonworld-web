@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../components/BaseLayout.astro';
+import CTASection from '../components/CTASection.astro';
+import PageHero from '../components/PageHero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import { solutions } from '../data/site';
+
+const principles = [
+  ['01', '업무 문제부터 정의', '기술을 고르기 전에 현장의 목표와 현재 업무 흐름을 확인합니다.'],
+  ['02', '기존 환경을 함께 고려', '운영 중인 시스템, 데이터와 조직의 제약 안에서 방안을 설계합니다.'],
+  ['03', '작은 범위부터 검증', 'PoC와 단계적 적용으로 가능성과 한계를 확인합니다.'],
+  ['04', '사람의 검토를 유지', 'AI 결과와 자동 변경은 업무 책임자가 검토할 수 있는 흐름을 고려합니다.'],
+];
+---
+
+<BaseLayout title="회사 소개" description="Moonworld는 제조업 도메인과 정보시스템 구축, AI 기술을 연결해 현장 업무에 필요한 소프트웨어를 설계합니다." path="/about/">
+  <PageHero eyebrow="ABOUT MOONWORLD" title="제조 업무와 기술 사이를 연결합니다" description="제조 현장의 업무를 이해하고 시스템 구축과 ML, DL, LLM 기술을 활용해 실제 업무에 필요한 소프트웨어를 설계합니다." />
+
+  <section class="section" aria-labelledby="about-work-heading">
+    <div class="container">
+      <SectionHeading id="about-work-heading" eyebrow="WHAT WE DO" title="제조 현장의 변화를 함께 설계합니다" text="제조 도메인, 시스템 구축 경험과 AI 개발 역량을 연결해 고객 과제의 실행 가능한 다음 단계를 찾습니다." />
+      <div class="about-triad">
+        <article><span>01</span><h3>제조 도메인 이해</h3><p>생산·품질·설비·설계 업무와 데이터를 살펴 문제와 운영 조건을 정의합니다.</p></article>
+        <article><span>02</span><h3>시스템 구축</h3><p>기존 업무와 연계 환경을 고려해 제조 소프트웨어와 데이터 흐름을 설계합니다.</p></article>
+        <article><span>03</span><h3>AI 개발</h3><p>ML/DL/LLM 등 적합한 방법을 검토하고 현장 업무에 연결하는 방안을 개발합니다.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-muted" aria-labelledby="approach-heading">
+    <div class="container">
+      <SectionHeading id="approach-heading" eyebrow="OUR APPROACH" title="현장의 문제를 출발점으로, 현실적인 변화를 만듭니다" text="화려한 기술보다 실제 업무에 도움이 되는 해법을 지향합니다. 기존 시스템과 데이터, 사람의 검토 과정을 함께 고려합니다." />
+      <ol class="principle-list">
+        {principles.map(([number, title, text]) => <li><span>{number}</span><h3>{title}</h3><p>{text}</p></li>)}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="focus-heading">
+    <div class="container">
+      <SectionHeading id="focus-heading" eyebrow="OUR FOCUS" title="제조의 다양한 영역에서 AI의 가능성을 살펴봅니다" text="사업 분야의 실제 수행 사례와 제품 상태는 확인된 자료 범위에 따라 별도로 공개합니다." />
+      <div class="solution-grid">
+        {solutions.map((solution) => <article class="solution-card solution-card-compact"><div class="solution-card-top"><span class="index-number">{solution.number}</span></div><p class="solution-english">{solution.english}</p><h3><a href={solution.href}>{solution.title}</a></h3><p class="solution-short">{solution.short}</p></article>)}
+      </div>
+    </div>
+  </section>
+
+  <CTASection title="제조 현장의 과제를 함께 이야기해 주세요" text="현황과 목표를 듣고 기술로 해결할 수 있는 범위를 함께 찾아보겠습니다." label="Moonworld에 문의하기" />
+</BaseLayout>

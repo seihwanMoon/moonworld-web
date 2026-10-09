@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../components/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+
+const inquiryTypes = ['프로젝트 문의', 'AI 도입 상담', 'PoC · 데모 요청', '일반 문의'];
+const consultationSteps = [
+  ['01', '문의 내용 확인', '현장의 과제와 요청 내용을 바탕으로 필요한 정보를 정리합니다.'],
+  ['02', '현황과 제약 파악', '업무, 데이터, 기존 시스템과 적용 조건을 확인합니다.'],
+  ['03', '다음 단계 협의', '검토 결과를 바탕으로 상담, PoC 또는 프로젝트 범위를 논의합니다.'],
+];
+---
+
+<BaseLayout title="문의" description="프로젝트 문의, 제조업 AI 도입 상담, PoC·데모 요청은 contact@moonworld.uk로 연락해 주세요." path="/contact/">
+  <PageHero eyebrow="CONTACT" title="제조 현장의 과제를 함께 이야기해 보세요" description="프로젝트 검토, AI 도입 상담, PoC·데모 요청 또는 일반 문의를 이메일로 보내 주세요." primaryLabel="이메일로 문의하기" primaryHref="mailto:contact@moonworld.uk" secondaryLabel="서비스 살펴보기" secondaryHref="/services/" compact />
+
+  <section class="section">
+    <div class="container contact-layout">
+      <div class="contact-channel">
+        <p class="eyebrow eyebrow-dark"><span></span>OFFICIAL BUSINESS EMAIL</p>
+        <h2>이메일로 문의하기</h2>
+        <p>문의 내용을 아래 주소로 보내 주세요. 이메일 앱이 열리며, 프로젝트 상황과 해결하고 싶은 과제를 함께 적어 주시면 상담 준비에 도움이 됩니다.</p>
+        <a class="contact-email-address" href="mailto:contact@moonworld.uk">contact@moonworld.uk</a>
+        <a class="button button-primary contact-email-button" href="mailto:contact@moonworld.uk">이메일 작성하기 <span aria-hidden="true">↗</span></a>
+        <div class="contact-status">
+          <strong>메일 작성 안내</strong>
+          문의 유형({inquiryTypes.join(' · ')}), 소속 기업, 현황과 기대하는 목표를 본문에 포함해 주세요. 메시지는 사용자의 이메일 앱에서 작성·전송됩니다.
+        </div>
+      </div>
+
+      <aside class="contact-side" aria-labelledby="consultation-heading">
+        <p class="eyebrow eyebrow-dark"><span></span>CONSULTATION PROCESS</p>
+        <h2 id="consultation-heading">상담 진행</h2>
+        <p>현장의 과제와 적용 조건을 바탕으로 다음 단계를 검토합니다.</p>
+        <ol>
+          {consultationSteps.map(([number, title, text]) => <li><span>{number}</span><div><h3>{title}</h3><p>{text}</p></div></li>)}
+        </ol>
+        <div class="contact-status"><strong>공식 문의 주소</strong><a href="mailto:contact@moonworld.uk">contact@moonworld.uk</a></div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

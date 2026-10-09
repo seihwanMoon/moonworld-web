@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../components/BaseLayout.astro';
+import CTASection from '../components/CTASection.astro';
+import EngineeringWorkflow from '../components/EngineeringWorkflow.astro';
+import PageHero from '../components/PageHero.astro';
+import StatusTag from '../components/StatusTag.astro';
+---
+
+<BaseLayout title="제품·연구" description="CATIA 설계 변경 지원, 제조 지식 활용, 산업 AI 분석을 위한 Moonworld의 제품 개발과 연구 방향을 소개합니다." path="/products/">
+  <PageHero eyebrow="PRODUCTS & R&D" title="제조 업무의 반복과 정보 탐색을 줄이는 기술" description="CATIA 설계 변경 지원 도구를 개발하고, 제조 지식관리와 산업 AI의 업무 적용 가능성을 연구합니다." />
+
+  <section class="product-section" id="catia-engineering-agent">
+    <div class="container">
+      <div class="engineering-product-layout">
+        <div>
+          <p class="eyebrow eyebrow-dark"><span></span>ENGINEERING AUTOMATION</p>
+          <div class="product-section-head"><h2>CATIA 설계 변경을 돕는 Agent</h2></div>
+          <p class="product-value">기존 CATIA V5 모델을 읽고 변경 후보를 검토한 뒤, 승인된 변경을 실행하고 결과를 확인하는 설계 지원 도구를 개발하고 있습니다. 반복적인 검토·수정 업무를 더 일관된 절차로 수행하도록 돕는 것이 목표입니다.</p>
+          <StatusTag label="개발 중" />
+          <p class="product-status-note">검증된 모델과 변경 경로에 한정된 내부 개발 단계이며, 외부 Demo와 고객 PoC는 아직 제공하지 않습니다.</p>
+        </div>
+        <div>
+          <h3 class="visually-hidden">CATIA Engineering Agent의 개발 방향</h3>
+          <EngineeringWorkflow />
+          <p class="workflow-caption">승인된 변경과 결과 확인을 포함한 개발 방향입니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="product-section section-muted" id="knowledge-management">
+    <div class="container">
+      <div class="product-section-head">
+        <div><p class="eyebrow eyebrow-dark"><span></span>KNOWLEDGE WORK</p><h2>제조 문서와 설계 지식을 찾고 활용하기</h2></div>
+        <StatusTag label="연구 후보" tone="gray" />
+      </div>
+      <p class="product-value">기술 문서와 설계 자료에서 필요한 근거를 찾아 업무 질문에 연결하는 지식관리 방식을 연구 후보로 검토합니다. RAG와 Agent 적용 시 검색 품질, 접근 권한, 답변 근거를 확인하는 것이 핵심입니다.</p>
+      <p class="product-status-note">현재 공개된 완성 제품이나 시연은 없습니다.</p>
+      <div class="research-diagram" aria-label="지식관리 연구 방향: 문서와 설계 자료, 근거 기반 지식 탐색, 업무 답변 지원">
+        <span>문서·설계 자료</span><b aria-hidden="true">→</b><span>근거 기반 지식 탐색</span><b aria-hidden="true">→</b><span>업무 답변 지원</span>
+      </div>
+      <p class="workflow-caption">지식관리 연구 방향 예시</p>
+    </div>
+  </section>
+
+  <section class="product-section" id="industrial-ai">
+    <div class="container">
+      <div class="product-section-head">
+        <div><p class="eyebrow eyebrow-dark"><span></span>APPLICATION AREA</p><h2>산업 AI 분석 · 예측</h2></div>
+        <StatusTag label="프로젝트 적용 영역" tone="gray" />
+      </div>
+      <p class="product-value">품질·설비·공정 데이터를 분석해 현장 의사결정을 돕는 ML/DL 모델을 개발하고 기존 업무시스템에 연결합니다. 구체적인 적용 범위는 고객 데이터와 검증 목표에 따라 정합니다.</p>
+      <p class="product-status-note">품질 예측·이상 탐지 등은 프로젝트 검토 영역이며, 출시된 독립 제품이나 검증 성능을 의미하지 않습니다.</p>
+      <div class="button-row"><a class="button button-outline-dark" href="/services/">AI 개발 서비스 보기 <span aria-hidden="true">↗</span></a></div>
+    </div>
+  </section>
+
+  <CTASection title="기술 검토나 제한된 PoC를 논의해 보세요" text="현재 상태와 고객 환경의 제약을 확인하고 가능한 범위를 함께 정의합니다." label="제품·PoC 문의하기" />
+</BaseLayout>

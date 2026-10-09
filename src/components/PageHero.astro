@@ -1,0 +1,29 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  description: string;
+  primaryLabel?: string;
+  primaryHref?: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+  compact?: boolean;
+}
+
+const { eyebrow, title, description, primaryLabel, primaryHref = '/contact/', secondaryLabel, secondaryHref = '/solutions/', compact = false } = Astro.props;
+---
+
+<section class:list={['page-hero', compact && 'page-hero-compact']}>
+  <div class="page-hero-image" aria-hidden="true"></div>
+  <div class="container page-hero-content">
+    <p class="eyebrow"><span></span>{eyebrow}</p>
+    <h1>{title}</h1>
+    <p class="page-hero-description">{description}</p>
+    {(primaryLabel || secondaryLabel) && (
+      <div class="button-row">
+        {primaryLabel && <a class="button button-primary" href={primaryHref}>{primaryLabel}<span aria-hidden="true">↗</span></a>}
+        {secondaryLabel && <a class="button button-outline-light" href={secondaryHref}>{secondaryLabel}</a>}
+      </div>
+    )}
+  </div>
+</section>

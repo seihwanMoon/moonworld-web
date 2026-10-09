@@ -1,0 +1,22 @@
+---
+import type { Solution } from '../data/site';
+import Icon from './Icon.astro';
+
+interface Props {
+  solution: Solution;
+  compact?: boolean;
+}
+
+const { solution, compact = false } = Astro.props;
+---
+
+<article class:list={['solution-card', compact && 'solution-card-compact']}>
+  <div class="solution-card-top">
+    <span class="index-number">{solution.number}</span>
+    <Icon name={solution.icon} size={32} />
+  </div>
+  <p class="solution-english">{solution.english}</p>
+  <h3><a href={solution.href}>{solution.title}</a></h3>
+  <p class="solution-short">{solution.short}</p>
+  <a class="text-link" href={solution.href}>자세히 보기 <span aria-hidden="true">→</span></a>
+</article>

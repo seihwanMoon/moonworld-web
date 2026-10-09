@@ -1,0 +1,12 @@
+---
+const steps = ['기존 CATIA V5 모델 확인', '읽을 수 있는 정보와 변경 후보 분석', '변경 계획과 범위 검토', '사용자 승인', '제한된 경로에서 실행', 'Update · Read-back 확인'];
+---
+
+<ol class="engineering-workflow" aria-label="CATIA Engineering Agent 개발 방향">
+  {steps.map((step, index) => (
+    <li>
+      <span class="workflow-number">{String(index + 1).padStart(2, '0')}</span>
+      <span>{step}</span>
+    </li>
+  ))}
+</ol>

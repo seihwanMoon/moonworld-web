@@ -1,0 +1,59 @@
+---
+import { navItems } from '../data/site';
+
+const currentPath = Astro.url.pathname;
+---
+
+<a class="skip-link" href="#main-content">본문 바로가기</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand-lockup" href="/" aria-label="MOONWORLD 홈">
+      <img src="/images/moonworld-logo.webp" alt="" aria-hidden="true" width="1200" height="323" />
+    </a>
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-controls="site-navigation"
+      aria-expanded="false"
+      aria-label="메뉴 열기"
+    >
+      <span></span><span></span>
+    </button>
+    <nav class="site-nav" id="site-navigation" aria-label="주요 메뉴">
+      <ul>
+        {navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              aria-current={currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href)) ? 'page' : undefined}
+            >{item.label}</a>
+          </li>
+        ))}
+      </ul>
+      <a class="button button-primary header-cta" href="/contact/">프로젝트 상담하기 <span aria-hidden="true">↗</span></a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+  const navigation = document.querySelector<HTMLElement>('#site-navigation');
+
+  const setMenuOpen = (open: boolean) => {
+    toggle?.setAttribute('aria-expanded', String(open));
+    toggle?.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
+    navigation?.classList.toggle('is-open', open);
+  };
+
+  toggle?.addEventListener('click', () => {
+    setMenuOpen(toggle.getAttribute('aria-expanded') !== 'true');
+  });
+
+  navigation?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => setMenuOpen(false));
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') setMenuOpen(false);
+  });
+</script>
